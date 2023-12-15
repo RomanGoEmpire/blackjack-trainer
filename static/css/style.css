@@ -1,0 +1,9 @@
+#refs {
+    display: none;
+}
+
+h1 {
+    font-size: 2em;
+    color: red;
+    font-family: "JetBrains Mono", monospace;
+}
