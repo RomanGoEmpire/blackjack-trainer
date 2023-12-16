@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1>Blackjack Trainer</h1>
-  <p>Blackjack is a game of skill and strategy. The goal of this trainer is to help you learn the correct strategy in Blackjack. The trainer will show you the correct play for every situation. You can also play a game of Blackjack against the computer to test your skills.</p>
+  <button type="button" hx-get="/cards" hx-target="#cards">Deal</button>
+  <div id="cards"></div>
 {% endblock %}
