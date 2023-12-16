@@ -1,15 +1,12 @@
-<h1 style="display: flex; justify-content: center;">Dealer</h1>
+<button type="button" hx-get="/cards" hx-target="#all-cards">Deal</button>
+<h1 style="">Dealer</h1>
 <div class="cards">
-  {% for card in dealer_cards %}
-    <img class="card" src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + card) }}" />
-  {% endfor %}
+  <img class="card" src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + dealer_cards[0]) }}" />
+  <img class="card" src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + dealer_cards[1]) }}" />
 </div>
-<h1 style="display: flex; justify-content: center;">Player</h1>
+<h1 style="">Player</h1>
 <div class="cards">
-  {% for card in player_cards %}
-    <img class="card" src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + card) }}" />
-  {% endfor %}
+  <img class="card" src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + player_cards[0]) }}" />
+  <img class="card" src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + player_cards[1]) }}" />
 </div>
 {{ options|safe }}
-
-<div id="option_result"></div>

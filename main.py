@@ -43,6 +43,7 @@ def cards():
 def options():
     option = request.args.get("option")
     result = evaluator.evaluate_option(option)
+
     return render_template("dynamic/evaluation.html", result=result)
 
 

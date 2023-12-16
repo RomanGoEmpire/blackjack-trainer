@@ -12,4 +12,6 @@ class Dealer:
     def deal_cards(self):
         card_one = Card(random.choice(VALUES), random.choice(SUITS))
         card_two = Card(random.choice(VALUES), random.choice(SUITS))
+        if sum([card_one.value_as_number(), card_two.value_as_number()]) == 21:
+            return self.deal_cards()
         return card_one, card_two
