@@ -1,12 +1,12 @@
-<h1>Dealer</h1>
-<div id="dealer_cards">
+<h1 style="display: flex; justify-content: center;">Dealer</h1>
+<div class="cards">
   {% for card in dealer_cards %}
-    <img src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + card + '.svg') }}" />
+    <img class="card" src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + card) }}" />
   {% endfor %}
 </div>
-<h1>Player</h1>
-<div id="player_cards">
+<h1 style="display: flex; justify-content: center;">Player</h1>
+<div class="cards">
   {% for card in player_cards %}
-    <img src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + card + '.svg') }}" />
+    <img class="card" src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + card) }}" />
   {% endfor %}
 </div>

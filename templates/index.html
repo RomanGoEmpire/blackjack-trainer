@@ -1,6 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
   <h1>Blackjack Trainer</h1>
-  <button type="button" hx-get="/cards" hx-target="#cards">Deal</button>
-  <div id="cards"></div>
+  <button type="button" hx-get="/cards" hx-target="#all-cards">Deal</button>
+  <div id="all-cards"></div>
+  <div id="options">
+    <button type="button" hx-get="/select_option?option=hit" hx-target="#option_result">Hit</button>
+    <button type="button" hx-get="/select_option?option=stand" hx-target="#option_result">Stand</button>
+    <button type="button" hx-get="/select_option?option=double" hx-target="#option_result">Double</button>
+    <button type="button" hx-get="/select_option?option=split" hx-target="#option_result">Split</button>
+  </div>
+  <div id="option_result"></div>
 {% endblock %}

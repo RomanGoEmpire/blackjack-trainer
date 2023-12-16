@@ -2,7 +2,31 @@
     display: none;
 }
 
+.cards {
+    display: flex;
+    justify-content: center;
+}
 
+.card {
+    display: flex;
+    margin: 1em;
+}
+
+#options {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 10px;
+    font-size: 1.5em;
+    background-color: white;
+    margin-inline: 0.5em;
+    border: 1px solid black;
+    border-radius: 5px;
+    min-width: 100px;
+    width: max-content;
+}
 
 h1 {
     font-size: 2em;
