@@ -10,3 +10,6 @@
     <img class="card" src="{{ url_for('static', filename = config.CARD_IMAGE_PATH + card) }}" />
   {% endfor %}
 </div>
+{{ options|safe }}
+
+<div id="option_result"></div>

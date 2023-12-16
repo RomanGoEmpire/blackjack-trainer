@@ -3,8 +3,8 @@ class Card:
         self.rank = rank
         self.suit = suit
 
-    def get_file_name(self):
-        return f"{self.rank}_{self.suit}.svg"
+    def file_name(self):
+        return f"{self.suit}_{self.rank}.svg"
 
     def value_as_number(self):
         if self.rank == "ace":

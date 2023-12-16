@@ -1,2 +1,7 @@
-<p>selected {{ option }}</p>
-<h2>Options was {{ result }}</h2>
+<div>
+  {% if result %}
+    <div>Correct</div>
+  {% else %}
+    <div>Wrong</div>
+  {% endif %}
+</div>
