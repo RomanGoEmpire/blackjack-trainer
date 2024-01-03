@@ -1,0 +1,8 @@
+body {
+    background-color: #386641;
+    font-family: "JetBrains Mono", monospace;
+}
+
+#credits {
+    display: none;
+}

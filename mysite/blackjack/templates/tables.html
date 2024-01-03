@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Blackjack Trainer</h1>
+  {% for title, table_data in content %}
+    <h2>{{ title }}</h2>
+    <table>
+      {% for row in table_data %}
+        <tr>
+          {% for cell in row %}
+            <td>{{ cell }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+  {% endfor %}
+{% endblock %}

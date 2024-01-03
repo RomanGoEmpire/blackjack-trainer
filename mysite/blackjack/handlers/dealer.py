@@ -1,5 +1,5 @@
 import random
-from card import Card
+from mysite.blackjack.dataclass.card import Card
 
 SUITS = ("spades", "hearts", "diamonds", "clubs")
 VALUES = ("ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king")
