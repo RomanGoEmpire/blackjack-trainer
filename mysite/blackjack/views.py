@@ -7,6 +7,7 @@ def index(request):
 
 def cards(request):
     return render(request, "cards.html")
+        
 
 def tables(request):
     return render(request, "tables.html")
