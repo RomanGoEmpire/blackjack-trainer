@@ -6,7 +6,12 @@ def index(request):
     return render(request, "index.html")
 
 def cards(request):
-    return render(request, "cards.html")
+    dealercards = ['club_2','card_back']
+    playercards = ['club_3','club_4']
+    return render(request, "cards.html", {
+        "dealer_cards": dealercards,
+        "player_cards": playercards
+    })
         
 
 def tables(request):

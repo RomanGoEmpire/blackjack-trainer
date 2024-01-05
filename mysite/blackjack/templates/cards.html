@@ -4,14 +4,17 @@
   <h1>Blackjack Trainer</h1>
   <h1 style="">Dealer</h1>
   <div class="cards">
-    <img class="card" src="{% static filename %}{{ config.CARD_IMAGE_PATH }}{{ dealer_cards[0] }}" />
-    <img class="card" src="{% static filename %}{{ config.CARD_IMAGE_PATH }}{{ dealer_cards[1] }}" />
+    {% for card in dealer_cards %}
+      <img class="card" src="{% static 'images/cards/'|add:card %}" />
+    {% endfor %}
   </div>
   <h1 style="">Player</h1>
   <div class="cards">
-    <img class="card" src="{% static filename %}{{ config.CARD_IMAGE_PATH }}{{ player_cards[0] }}" />
-    <img class="card" src="{% static filename %}{{ config.CARD_IMAGE_PATH }}{{ player_cards[1] }}" />
+    {% for card in player_cards %}
+      <img class="card" src="{% static 'images/cards/'|add:card %}" />
+    {% endfor %}
   </div>
+
   {{ options|safe }}
   {{ statistics|safe }}
 {% endblock %}
