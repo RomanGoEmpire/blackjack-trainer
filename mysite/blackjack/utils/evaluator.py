@@ -1,12 +1,20 @@
 import numpy as np
 import os
+import os
 
 
 class Evaluator:
     def __init__(self):
-        self.hard_total = np.genfromtxt("data/hard_total.csv", delimiter=",", dtype=str)
-        self.soft_total = np.genfromtxt("data/soft_total.csv", delimiter=",", dtype=str)
-        self.splitting = np.genfromtxt("data/splitting.csv", delimiter=",", dtype=str)
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        print(base_dir)
+        paths = [
+            os.path.join(base_dir, "data/hard_total.csv"),
+            os.path.join(base_dir, "data/soft_total.csv"),
+            os.path.join(base_dir, "data/splitting.csv"),
+        ]
+        self.hard_total = np.genfromtxt(paths[0], delimiter=",", dtype=str)
+        self.soft_total = np.genfromtxt(paths[1], delimiter=",", dtype=str)
+        self.splitting = np.genfromtxt(paths[2], delimiter=",", dtype=str)
 
         self.dealer_card = None
         self.player_cards = None

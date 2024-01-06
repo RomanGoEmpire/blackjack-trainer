@@ -5,16 +5,13 @@
   <h1 style="">Dealer</h1>
   <div class="cards">
     {% for card in dealer_cards %}
-      <img class="card" src="{% static 'images/cards/'|add:card %}" />
+      <img class="card" src="{% static card.image %}" />
     {% endfor %}
   </div>
   <h1 style="">Player</h1>
   <div class="cards">
     {% for card in player_cards %}
-      <img class="card" src="{% static 'images/cards/'|add:card %}" />
+      <img class="card" src="{% static card.image %}" />
     {% endfor %}
   </div>
-
-  {{ options|safe }}
-  {{ statistics|safe }}
 {% endblock %}
