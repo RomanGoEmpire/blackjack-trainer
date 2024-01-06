@@ -12,9 +12,23 @@ def index(request):
 
 
 def cards(request):
-    back = Card.objects.get(suit="card", value="back")
-    dealer_cards = [random.choice(Card.objects.exclude(value="back")), back]
+    dealer_cards = [
+        random.choice(Card.objects.exclude(value="back")),
+        Card.objects.get(suit="card", value="back"),
+    ]
+    player_cards = generate_player_cards()
+    split = player_cards[0].get_value() == player_cards[1].get_value()
+    evaluator.player_cards = [player_cards[0].get_value(), player_cards[1].get_value()]
+    evaluator.dealer_card = dealer_cards[0].get_value()
 
+    return render(
+        request,
+        "cards.html",
+        {"dealer_cards": dealer_cards, "player_cards": player_cards, "split": split},
+    )
+
+
+def generate_player_cards():
     sum = 21
     player_cards = []
     while sum == 21:
@@ -22,13 +36,13 @@ def cards(request):
             random.choice(Card.objects.exclude(value="back")),
             random.choice(Card.objects.exclude(value="back")),
         ]
-        sum = player_cards[0].get_value() + player_cards[1].get_value()
+        sum = sum_card_values(player_cards)
 
-    return render(
-        request,
-        "cards.html",
-        {"dealer_cards": dealer_cards, "player_cards": player_cards},
-    )
+    return player_cards
+
+
+def sum_card_values(cards):
+    return sum(card.get_value() for card in cards)
 
 
 def tables(request):
@@ -41,3 +55,12 @@ def tables(request):
     content = zip(title, table_data)
     print(table_data)
     return render(request, "tables.html", {"content": content})
+
+
+def selected(request, option):
+    is_correct, correct_choice = evaluator.evaluate_option(option)
+    return render(
+        request,
+        "selected.html",
+        {"is_correct": is_correct, "correct_choice": correct_choice, "option": option},
+    )

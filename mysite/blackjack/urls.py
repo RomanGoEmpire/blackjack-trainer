@@ -7,4 +7,5 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("cards/", views.cards, name="cards"),
     path("tables/", views.tables, name="tables"),
+    path("cards/selected/<str:option>/", views.selected, name="selected"),
 ]

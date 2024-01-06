@@ -16,16 +16,16 @@ class Evaluator:
         self.soft_total = np.genfromtxt(paths[1], delimiter=",", dtype=str)
         self.splitting = np.genfromtxt(paths[2], delimiter=",", dtype=str)
 
-        self.dealer_card = None
-        self.player_cards = None
+        self.dealer_card: int = None
+        self.player_cards: list = None
 
     def eval_splitting(self, option):
         correct_choice = self.splitting[self.player_cards[0] - 1][self.dealer_card - 1]
-        return correct_choice == option
+        return correct_choice == option, correct_choice
 
-    def eval_soft_tolal(self, card, option):
+    def eval_soft_total(self, card, option):
         correct_choice = self.soft_total[card - 1][self.dealer_card - 1]
-        return correct_choice == option
+        return correct_choice == option, correct_choice
 
     def eval_hard_total(self, sum_player_cards, option):
         if sum_player_cards < 8:
@@ -33,7 +33,7 @@ class Evaluator:
         elif sum_player_cards > 17:
             sum_player_cards = 17
         correct_choice = self.hard_total[sum_player_cards - 7][self.dealer_card - 1]
-        return correct_choice == option
+        return correct_choice == option, correct_choice
 
     def evaluate_option(self, option):
         sum_player_cards = sum(self.player_cards)
@@ -47,6 +47,6 @@ class Evaluator:
                 if self.player_cards[0] != 11
                 else self.player_cards[1]
             )
-            return self.eval_soft_tolal(card, option)
+            return self.eval_soft_total(card, option)
         else:
             return self.eval_hard_total(sum_player_cards, option)

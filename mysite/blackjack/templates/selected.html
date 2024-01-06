@@ -1,0 +1,7 @@
+{% if is_correct %}
+  <p>Correct!</p>
+{% else %}
+  <p>Incorrect!</p>
+  <p>You choose {{ option }}. The correct answer is {{ correct_choice }}.</p>
+{% endif %}
+<button type="button" class="button" onclick="window.location.href='{% url 'blackjack:cards' %}'">Next</button>
