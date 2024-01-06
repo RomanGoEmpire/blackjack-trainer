@@ -53,7 +53,6 @@ def tables(request):
         evaluator.splitting,
     ]
     content = zip(title, table_data)
-    print(table_data)
     return render(request, "tables.html", {"content": content})
 
 
