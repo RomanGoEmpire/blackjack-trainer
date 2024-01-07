@@ -4,8 +4,10 @@ from . import views
 
 app_name = "blackjack"
 urlpatterns = [
-    path("", views.index, name="index"),
-    path("cards/", views.cards, name="cards"),
+    path("", views.index, name="home"),
+    path("games/", views.games, name="games"),
+    path("games/practice/", views.practice, name="practice"),
     path("tables/", views.tables, name="tables"),
-    path("cards/selected/<str:option>/", views.selected, name="selected"),
+    path("stats/", views.stats, name="stats"),
+    path("selected/<str:option>/<str:mode>/", views.selected, name="selected"),
 ]

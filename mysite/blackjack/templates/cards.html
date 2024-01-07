@@ -1,33 +1,29 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block content %}
-  <h1>Blackjack Trainer</h1>
-  <h1 style="">Dealer</h1>
-  <div class="cards">
-    {% for card in dealer_cards %}
-      <img class="card" src="{% static card.image %}" />
-    {% endfor %}
-  </div>
-  <h1 style="">Player</h1>
-  <div class="cards">
-    {% for card in player_cards %}
-      <img class="card" src="{% static card.image %}" />
-    {% endfor %}
-  </div>
-  <div id="buttons">
-    {% if split %}
-      <form>
-        {% csrf_token %}
-        <button type="button" hx-post="{% url 'blackjack:selected' 'split-yes' %}" hx-target="#buttons" hx-swap="outerHTML">Yes</button>
-        <button type="button" hx-post="{% url 'blackjack:selected' 'split-no' %}" hx-target="#buttons" hx-swap="outerHTML">No</button>
-      </form>
-    {% else %}
-      <form>
-        {% csrf_token %}
-        <button type="button" hx-post="{% url 'blackjack:selected' 'hit' %}" hx-target="#buttons" hx-swap="outerHTML">Hit</button>
-        <button type="button" hx-post="{% url 'blackjack:selected' 'stand' %}" hx-target="#buttons" hx-swap="outerHTML">Stand</button>
-        <button type="button" hx-post="{% url 'blackjack:selected' 'double' %}" hx-target="#buttons" hx-swap="outerHTML">Double</button>
-      </form>
-    {% endif %}
-  </div>
-{% endblock %}
+<h1 style="">Dealer</h1>
+<div class="cards">
+  {% for card in dealer_cards %}
+    <img class="card" src="{% static card.image %}" />
+  {% endfor %}
+</div>
+<h1 style="">Player</h1>
+<div class="cards">
+  {% for card in player_cards %}
+    <img class="card" src="{% static card.image %}" />
+  {% endfor %}
+</div>
+<div id="buttons">
+  {% if split %}
+    <form>
+      {% csrf_token %}
+      <button type="button" hx-post="{% url 'blackjack:selected' 'yes' mode %}" hx-target="#buttons" hx-swap="outerHTML">Yes</button>
+      <button type="button" hx-post="{% url 'blackjack:selected' 'no' mode %}" hx-target="#buttons" hx-swap="outerHTML">No</button>
+    </form>
+  {% else %}
+    <form>
+      {% csrf_token %}
+      <button type="button" hx-post="{% url 'blackjack:selected' 'hit' mode %}" hx-target="#buttons" hx-swap="outerHTML">Hit</button>
+      <button type="button" hx-post="{% url 'blackjack:selected' 'stand' mode %}" hx-target="#buttons" hx-swap="outerHTML">Stand</button>
+      <button type="button" hx-post="{% url 'blackjack:selected' 'double' mode %}" hx-target="#buttons" hx-swap="outerHTML">Double</button>
+    </form>
+  {% endif %}
+</div>
